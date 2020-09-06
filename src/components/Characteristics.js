@@ -1,27 +1,38 @@
 import React, { Component } from 'react'
 import util from '../util'
+import './Characteristics.css';
+
 export default class Characteristics extends Component {
     render() {
         const {characteristicsItems} = this.props;
         return (
-            <div className="alert alert-info">
+            <div className="alert alert-info text-center">
                 {characteristicsItems.length === 0 
                 ? "No phones selected": 
                 <div>You have {characteristicsItems.length} phones selected.<hr /></div>}
                 {characteristicsItems.length > 0 && 
                     
                     <div>
-                        <div>
+                        <div >
                             {characteristicsItems.map(item =>
                                 
-                                <li className= "thumbnail alert alert-info">
-                                    <h4><b> <p className=" text-success ">Phone:  </p> {item.name}</b></h4>
-                                    <h5><b> <p className=" text-success ">Manufacturer: </p> {item.manufacturer}</b></h5>
-                                    <h5><b> <p className=" text-success ">Description: </p> {item.description}</b></h5>
-                                    <h5><b> <p className=" text-success ">Color:</p>  {item.color}</b></h5>
-                                    <h5><b> <p className=" text-success ">Screen: </p> {item.screen}</b></h5>
-                                    <h5><b> <p className=" text-success ">Processor: </p> {item.processor}</b></h5>
-                                    <h5><b> <p className=" text-success ">Ram memory: </p> {item.ram} Gb</b></h5>
+                                <li className="img-thumbnail">
+                                    <div className ="loader">
+                                    <h4><b> <p className=" text-success "><u>Phone</u></p></b></h4>
+                                    {item.name}
+                                    <h5><b> <p className=" text-success "><u>Manufacturer</u> </p></b></h5>
+                                    {item.manufacturer}
+                                    <h5><b> <p className=" text-success "><u>Description</u></p></b></h5>
+                                    <p className="text-justify">{item.description}</p>
+                                    <h5><b> <p className=" text-success "><u>Color</u></p></b></h5>
+                                    {item.color}
+                                    <h5><b> <p className=" text-success "><u>Screen</u> </p></b></h5>
+                                    {item.screen}
+                                    <h5><b><p className=" text-success "><u>Processor</u></p></b></h5>
+                                    {item.processor}
+                                    <h5><b><p className=" text-success "><u>Ram memory</u> </p></b></h5>
+                                    <p>{item.ram} Gb</p>
+                                    </div>
                                     <button style={{ float: 'right' }} className="btn btn-danger btn-xs"
                                         onClick={(e) => this.props.handleRemoveFromCharacteristics(e, item)}>X</button>
                                     <hr />

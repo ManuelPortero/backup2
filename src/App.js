@@ -7,6 +7,7 @@ import {Provider} from "react-redux";
 import store from "./store";
 
 
+
 class App extends Component {
 constructor(props){
   super(props)
@@ -16,6 +17,9 @@ constructor(props){
   this.handleRemoveFromCharacteristics = this.handleRemoveFromCharacteristics.bind(this);
 
 }
+
+
+
 
 handleChangeSort(e){
   this.setState({sort: e.target.value});
@@ -32,7 +36,7 @@ handleAddCharacteristics(e,product){
       if(item.id ===product.id){
         productAlreadyInCharacteristics = true; 
         item.count++;
-      }
+      } 
     });    
 
     if(!productAlreadyInCharacteristics){
